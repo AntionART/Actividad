@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="FESC - Fundación de Estudios Superiores Comfanorte. Institución de educación superior tecnológica">
+    <title>FESC - Inicio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: #c91212;
+            color: white;
+            padding: 8px;
+            text-decoration: none;
+            z-index: 100;
+        }
+
+        .skip-link:focus {
+            top: 0;
+        }
+
+        .top-bar {
+            background-color: #f8f8f8;
+            padding: 10px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .top-bar-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.9em;
+            color: #333;
+        }
+
+        .contact-info {
+            display: flex;
+            gap: 20px;
+        }
+
+        .contact-info a {
+            color: #333;
+            text-decoration: none;
+        }
+
+        .contact-info a:hover,
+        .contact-info a:focus {
+            color: #c91212;
+            outline: 2px solid #c91212;
+            outline-offset: 2px;
+        }
+
+        header {
+            background-color: white;
+            padding: 20px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo {
+            font-size: 32px;
+            font-weight: bold;
+            color: #003d7a;
+            text-decoration: none;
+        }
+
+        .logo:hover,
+        .logo:focus {
+            color: #c91212;
+            outline: 2px solid #c91212;
+            outline-offset: 2px;
+        }
+
+        .logo-30 {
+            font-size: 24px;
+            color: #c91212;
+            font-weight: bold;
+        }
+
+        .header-search {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .header-search input {
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            width: 200px;
+        }
+
+        .header-search input:focus {
+            outline: 2px solid #003d7a;
+            border-color: #003d7a;
+        }
+
+        .sign-in {
+            background-color: #003d7a;
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        .sign-in:hover,
+        .sign-in:focus {
+            background-color: #c91212;
+            outline: 2px solid #ffd700;
+        }
+
+        nav {
+            background-color: #f0f0f0;
+            border-top: 1px solid #ddd;
+            border-bottom: 1px solid #ddd;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+            flex-wrap: wrap;
+        }
+
+        nav li {
+            margin: 0;
+        }
+
+        nav a {
+            display: block;
+            padding: 15px 18px;
+            color: #333;
+            text-decoration: none;
+            font-size: 0.95em;
+            font-weight: 500;
+            transition: all 0.3s;
+            border-bottom: 3px solid transparent;
+        }
+
+        nav a:hover,
+        nav a:focus {
+            background-color: #e8e8e8;
+            border-bottom-color: #c91212;
+            outline: none;
+        }
+
+        nav .inscribirse {
+            background-color: #c91212;
+            color: white;
+            margin: 10px 20px;
+        }
+
+        nav .inscribirse:hover,
+        nav .inscribirse:focus {
+            background-color: #a00d0d;
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, #f5f5dc 0%, #faf8f3 100%);
+            padding: 30px 0;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .hero-image {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .banner-info {
+            background-color: white;
+            padding: 40px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .banner-info h1 {
+            color: #1a1a1a;
+            font-size: 2.2em;
+            margin-bottom: 20px;
+            border: none;
+            padding: 0;
+        }
+
+        .banner-info h2 {
+            color: #c91212;
+            font-size: 1.3em;
+            margin: 15px 0;
+        }
+
+        .banner-info h3 {
+            color: #c91212;
+            font-size: 1.3em;
+            margin: 15px 0;
+            margin-top: 0;
+        }
+
+        .banner-info p {
+            color: #1a1a1a;
+            font-weight: 500;
+        }
+
+        .banner-info .highlight {
+            color: #c91212;
+            font-weight: bold;
+        }
+
+        main {
+            max-width: 1400px;
+            margin: 30px auto;
+            padding: 0 20px;
+            min-height: 60vh;
+        }
+
+        .accessibility-controls {
+            background-color: #f0f0f0;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            border-left: 4px solid #003d7a;
+        }
+
+        .accessibility-controls button {
+            background-color: #003d7a;
+            color: white;
+            padding: 10px 15px;
+            border: 2px solid #003d7a;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.95em;
+            transition: all 0.3s;
+            font-weight: bold;
+        }
+
+        .accessibility-controls button:hover,
+        .accessibility-controls button:focus {
+            background-color: #c91212;
+            border-color: #c91212;
+            outline: 2px solid #333;
+            outline-offset: 2px;
+        }
+
+        .content-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        section {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #003d7a;
+            font-size: 2.2em;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #c91212;
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            color: #003d7a;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+        }
+
+        h3 {
+            color: #c91212;
+            font-size: 1.3em;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            margin-bottom: 15px;
+            text-align: left;
+            font-size: 1.05em;
+            color: #444;
+            line-height: 1.7;
+        }
+
+        a {
+            color: #003d7a;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        a:hover,
+        a:focus {
+            color: #c91212;
+            outline: 2px solid #c91212;
+            outline-offset: 2px;
+        }
+
+        .read-more {
+            color: #c91212;
+            font-weight: bold;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            font-size: 1em;
+        }
+
+        table caption {
+            background-color: #003d7a;
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: bold;
+            font-size: 1.1em;
+            caption-side: top;
+        }
+
+        table thead {
+            background-color: #2c5aa0;
+            color: white;
+        }
+
+        table th {
+            padding: 12px;
+            text-align: left;
+            font-weight: bold;
+            border: 1px solid #ccc;
+        }
+
+        table td {
+            padding: 12px;
+            border: 1px solid #ddd;
+        }
+
+        table tbody tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        table tbody tr:hover {
+            background-color: #efefef;
+        }
+
+        form {
+            background-color: #f9f9f9;
+            padding: 30px;
+            border-radius: 8px;
+            border-left: 4px solid #c91212;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #1a1a1a;
+        }
+
+        label .required {
+            color: #c91212;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+            font-size: 1em;
+            font-family: inherit;
+            transition: border-color 0.3s;
+            color: #1a1a1a;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #003d7a;
+            box-shadow: 0 0 5px rgba(0, 61, 122, 0.5);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .help-text {
+            font-size: 0.9em;
+            color: #555;
+            margin-top: 5px;
+        }
+
+        button {
+            background-color: #c91212;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 4px;
+            font-size: 1.05em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover,
+        button:focus {
+            background-color: #a00d0d;
+            outline: 2px solid #ffd700;
+            outline-offset: 2px;
+        }
+
+        .service-buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .service-btn {
+            background-color: #c91212;
+            color: white;
+            padding: 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1.1em;
+            font-weight: bold;
+            text-align: center;
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .service-btn:hover,
+        .service-btn:focus {
+            background-color: #a00d0d;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            outline: 2px solid #ffd700;
+        }
+
+        .service-icon {
+            font-size: 2em;
+        }
+
+        body.high-contrast {
+            background-color: #000;
+            color: #ffff00;
+        }
+
+        body.high-contrast section {
+            background-color: #000;
+            color: #ffff00;
+            border: 2px solid #ffff00;
+        }
+
+        body.high-contrast h1,
+        body.high-contrast h2,
+        body.high-contrast h3 {
+            color: #ffff00;
+        }
+
+        body.high-contrast table thead {
+            background-color: #ffff00;
+            color: #000;
+        }
+
+        body.high-contrast a {
+            color: #00ffff;
+        }
+
+        body.high-contrast nav a {
+            color: #ffff00;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            margin-top: 50px;
+            padding: 40px 0;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-section h4 {
+            color: #ffd700;
+            margin-bottom: 15px;
+        }
+
+        .footer-section p {
+            text-align: left;
+            color: #d0d0d0;
+            font-size: 0.95em;
+        }
+
+        .footer-section a {
+            color: #ffd700;
+        }
+
+        .footer-section a:hover,
+        .footer-section a:focus {
+            color: #ffeb3b;
+            outline: 2px solid #ffeb3b;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #555;
+            padding-top: 20px;
+            text-align: center;
+            color: #aaa;
+        }
+
+        @media (max-width: 768px) {
+            .content-section {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            nav ul {
+                flex-direction: column;
+            }
+
+            nav a {
+                border-bottom: 1px solid #ddd;
+            }
+
+            h1 {
+                font-size: 1.8em;
+            }
+
+            h2 {
+                font-size: 1.4em;
+            }
+
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .header-search {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .header-search input {
+                width: 100%;
+            }
+
+            table {
+                font-size: 0.9em;
+            }
+
+            table th,
+            table td {
+                padding: 8px;
+            }
+
+            .service-buttons {
+                grid-template-columns: 1fr;
+            }
+
+            .accessibility-controls {
+                flex-direction: column;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+
+        *:focus-visible {
+            outline: 2px solid #ffd700;
+            outline-offset: 2px;
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+
+    <div class="top-bar">
+        <div class="top-bar-content">
+            <div class="contact-info">
+                <a href="tel:+576075880091">📞 +57 607 5880091 ext 101 102 103</a>
+                <a href="tel:3123541578">📱 312 354 1578 / 313 386 0356</a>
+            </div>
+            <div>Síguenos en redes sociales</div>
+        </div>
+    </div>
+
+    <header>
+        <div class="header-content">
+            <div class="logo-section">
+                <a href="#" class="logo">FESC <span class="logo-30">30</span></a>
+                <p style="margin: 0; font-size: 0.85em; color: #1a1a1a; font-weight: 500;">Fundación de Estudios Superiores Comfanorte</p>
+            </div>
+            <div class="header-search">
+                <input type="text" placeholder="Buscar..." aria-label="Búsqueda en el sitio">
+                <a href="#" class="sign-in">Iniciar Sesión</a>
+            </div>
+        </div>
+    </header>
+
+    <nav aria-label="Menú principal">
+        <ul>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#programas">Programas</a></li>
+            <li><a href="#servicios">Servicios</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <div class="hero-section">
+        <div class="hero-content">
+            <div class="banner-info">
+                <h1>¡Información <span class="highlight">Importante!</span></h1>
+                <h3>¡Actualizamos nuestra línea telefónica fija!</h3>
+                <p>Ahora puedes comunicarte con nosotros a través del <span class="highlight">PBX (607) 5880091</span></p>
+                <p style="font-size: 1em; margin-top: 15px;">Al marcar, la operadora te dará las indicaciones para que puedas marcar la extensión de la oficina.</p>
+            </div>
+        </div>
+    </div>
+
+    <main id="main-content">
+        <div class="accessibility-controls" aria-label="Controles de accesibilidad">
+            <button onclick="increaseFontSize()">A+ Aumentar</button>
+            <button onclick="decreaseFontSize()">A- Disminuir</button>
+            <button onclick="toggleContrast()">⚫ Contraste Alto</button>
+            <button onclick="resetAccessibility()">↻ Restablecer</button>
+        </div>
+
+        <div class="content-section">
+            <section id="inicio">
+                <h2>Proyectamos Nuestra Institución</h2>
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect fill='%23c91212' width='400' height='300'/%3E%3Ctext x='50%25' y='50%25' font-size='32' fill='white' text-anchor='middle' dominant-baseline='middle' font-family='Arial' font-weight='bold'%3E1ra Feria Turística FESC%3C/text%3E%3Ctext x='50%25' y='75%25' font-size='20' fill='white' text-anchor='middle' font-family='Arial'%3E01 Octubre 2025%3C/text%3E%3C/svg%3E" alt="Imagen de la 1ra Feria Turística FESC - 01 Octubre 2025" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px; margin-bottom: 15px;">
+                <h3>Noticias Destacadas</h3>
+                <p>Últimas actividades e iniciativas de la FESC que fortalecen la formación integral de nuestros estudiantes.</p>
+                <a href="#" class="read-more">Más noticias en Comunicados →</a>
+            </section>
+
+            <section>
+                <h2>¿Por qué estudiar en la FESC?</h2>
+                <p>
+                    La FESC es una Institución de Educación Superior, de carácter tecnológico, redefinida para ofertar programas 
+                    por ciclos propedéuticos a nivel técnico profesional, tecnológico, profesional universitario y especializaciones, 
+                    en sus distintas modalidades presencial (diurna y nocturna), distancia y virtual, con sede en Cúcuta y la 
+                    Provincia de Ocaña.
+                </p>
+                <h3>Nuestra Oferta Académica</h3>
+                <p>
+                    Diseñada para responder a las necesidades del mercado laboral con programas de calidad que garantizan 
+                    la formación integral de profesionales competentes.
+                </p>
+                <a href="#programas">Ver programas académicos →</a>
+            </section>
+        </div>
+
+        <section id="programas">
+            <h2>Programas Académicos</h2>
+            <p>Oferta de programas en diferentes modalidades y niveles educativos:</p>
+
+            <table>
+                <caption>Programas académicos ofrecidos por FESC</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Programa</th>
+                        <th scope="col">Nivel</th>
+                        <th scope="col">Modalidad</th>
+                        <th scope="col">Duración</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Ingeniería de Software</td>
+                        <td>Profesional</td>
+                        <td>Presencial</td>
+                        <td>8 semestres</td>
+                    </tr>
+                    <tr>
+                        <td>Administración de Negocios Internacionales</td>
+                        <td>Profesional</td>
+                        <td>Presencial / Distancia</td>
+                        <td>8 semestres</td>
+                    </tr>
+                    <tr>
+                        <td>Administración Financiera</td>
+                        <td>Profesional</td>
+                        <td>Presencial / Virtual</td>
+                        <td>8 semestres</td>
+                    </tr>
+                    <tr>
+                        <td>Diseño Gráfico</td>
+                        <td>Profesional</td>
+                        <td>Presencial</td>
+                        <td>8 semestres</td>
+                    </tr>
+                    <tr>
+                        <td>Administración Turística y Hotelera</td>
+                        <td>Profesional</td>
+                        <td>Virtual</td>
+                        <td>8 semestres</td>
+                    </tr>
+                    <tr>
+                        <td>Gestión Pública</td>
+                        <td>Especialización</td>
+                        <td>Virtual</td>
+                        <td>4 semestres</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="servicios">
+            <h2>Servicios Estudiantiles</h2>
+            <h3>Acceso a Servicios</h3>
+            <p>Conoce todos los servicios disponibles para apoyar tu proceso formativo en FESC.</p>
+
+            <div class="service-buttons">
+                <button class="service-btn" onclick="alert('Información de aspirantes')">
+                    <span class="service-icon">👤</span>
+                    ASPIRANTE
+                </button>
+                <button class="service-btn" onclick="alert('Programas de apoyo financiero')">
+                    <span class="service-icon">💰</span>
+                    APOYO FINANCIERO
+                </button>
+                <button class="service-btn" onclick="alert('Servicios de bienestar')">
+                    <span class="service-icon">❤️</span>
+                    APOYO AL ESTUDIANTE
+                </button>
+            </div>
+        </section>
+
+        <section id="contacto">
+            <h2>Ponte en Contacto</h2>
+            <p>¿Tienes preguntas sobre nuestros programas? Completa el formulario y nos comunicaremos contigo.</p>
+
+            <form id="contact-form" novalidate>
+                <div class="form-group">
+                    <label for="nombre">
+                        Nombre completo <span class="required">*</span>
+                    </label>
+                    <input 
+                        type="text" 
+                        id="nombre" 
+                        name="nombre" 
+                        required 
+                        aria-describedby="help-nombre"
+                        placeholder="Tu nombre"
+                    >
+                    <span id="help-nombre" class="help-text">Campo obligatorio. Tu nombre completo.</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="correo">
+                        Correo electrónico <span class="required">*</span>
+                    </label>
+                    <input 
+                        type="email" 
+                        id="correo" 
+                        name="correo" 
+                        required 
+                        aria-describedby="help-correo"
+                        placeholder="tu.correo@ejemplo.com"
+                    >
+                    <span id="help-correo" class="help-text">Correo válido donde podamos contactarte.</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="mensaje">
+                        Mensaje <span class="required">*</span>
+                    </label>
+                    <textarea 
+                        id="mensaje" 
+                        name="mensaje" 
+                        required 
+                        aria-describedby="help-mensaje"
+                        placeholder="Tu pregunta o comentario"
+                    ></textarea>
+                    <span id="help-mensaje" class="help-text">Mínimo 10 caracteres.</span>
+                </div>
+
+                <button type="submit">Enviar Mensaje</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Sede Cúcuta</h4>
+                <p>📍 Av. 5 #15-27, Centro - Cúcuta</p>
+                <p>📞 PBX: +57 607 5880091 ext 101 102 103</p>
+                <p>📱 312 354 1578 / 313 386 0356</p>
+            </div>
+
+            <div class="footer-section">
+                <h4>Sede Ocaña</h4>
+                <p>📍 Kdx 194-785, Vía Universitaria</p>
+                <p>📞 PBX: +57 607 5880091 ext 203</p>
+                <p>📱 313 386 1614</p>
+            </div>
+
+            <div class="footer-section">
+                <h4>Enlaces Útiles</h4>
+                <p><a href="#">Correo FESC</a></p>
+                <p><a href="#">SIPAES</a></p>
+                <p><a href="#">Graduados</a></p>
+                <p><a href="#">Trabaje con nosotros</a></p>
+                <p><a href="#">Buzón PQRS</a></p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 FESC - Fundación de Estudios Superiores Comfanorte. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Funciones de accesibilidad
+        let currentFontSize = 16;
+        let isHighContrast = false;
+
+        function increaseFontSize() {
+            if (currentFontSize < 24) {
+                currentFontSize += 2;
+                document.body.style.fontSize = currentFontSize + 'px';
+            }
+        }
+
+        function decreaseFontSize() {
+            if (currentFontSize > 12) {
+                currentFontSize -= 2;
+                document.body.style.fontSize = currentFontSize + 'px';
+            }
+        }
+
+        function toggleContrast() {
+            isHighContrast = !isHighContrast;
+            document.body.classList.toggle('high-contrast');
+        }
+
+        function resetAccessibility() {
+            currentFontSize = 16;
+            document.body.style.fontSize = '16px';
+            isHighContrast = false;
+            document.body.classList.remove('high-contrast');
+        }
+
+        // Validación de formulario
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const nombre = document.getElementById('nombre').value.trim();
+            const correo = document.getElementById('correo').value.trim();
+            const mensaje = document.getElementById('mensaje').value.trim();
+
+            if (!nombre || !correo || !mensaje) {
+                alert('Por favor completa todos los campos requeridos.');
+                return;
+            }
+
+            if (mensaje.length < 10) {
+                alert('El mensaje debe tener al menos 10 caracteres.');
+                return;
+            }
+
+            alert('¡Gracias! Tu mensaje ha sido enviado correctamente. Nos comunicaremos pronto.');
+            this.reset();
+        });
+
+        // Navegación con teclado
+        document.addEventListener('keydown', function(e) {
+            if (e.altKey && e.key === 's') {
+                document.getElementById('main-content').focus();
+            }
+        });
+    </script>
+</body>
+</html>
